@@ -19,6 +19,7 @@ export const FilterCategories = styled.div`
     button{
         border: 2px solid #2e1a47;
         border-radius: 10px;
+        outline: none;
 
     }
     button:active{

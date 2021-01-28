@@ -2,12 +2,12 @@ import './App.css';
 import React, {useState, useEffect} from 'react';
 
 
-import Header from '../src/components/Header';
-import Categories from '../src/components/Categories';
-import Footer from '../src/components/Footer';
-import Posts from '../src/components/Posts';
+import Header from '../../components/Header';
+import Categories from '../../components/Categories';
+import Footer from '../../components/Footer';
+import Posts from '../../components/Posts';
 import * as S from './styles';
-function App() {
+function Home() {
   const [filterActived, setFilterActived] = useState('Todos');
 
 
@@ -47,4 +47,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;
