@@ -8,7 +8,7 @@ export const Container = styled.div`
     }
 `;
 
-export const Form = styled.div`
+export const Form = styled.form`
     width: 80%;
     margin: auto;
     display: flex;

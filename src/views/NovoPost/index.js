@@ -24,7 +24,7 @@ function NovoPost(){
                     <label id="label-textarea">POST</label>
                     <textarea rows="17" cols="5" placeholder="Content"></textarea>
                 </S.Input>
-                <S.Button>
+                <S.Button onclick="verificarCampos">
                     Salvar
                 </S.Button>
             </S.Form>
