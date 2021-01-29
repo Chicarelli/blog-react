@@ -10,4 +10,13 @@ export const Button = styled.div`
     cursor: pointer;
     font-weight: bold;
     font-family: Arial;
+
+
+    @media screen and (max-width: 1030px){
+        min-width: 100px;
+    }
+
+    @media screen and (max-width: 750px){
+        min-width: 75px;
+    }
 `;

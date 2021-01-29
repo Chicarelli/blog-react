@@ -10,6 +10,7 @@ export const Container = styled.div`
 
 export const Form = styled.form`
     width: 80%;
+    height: 100%;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -48,11 +49,13 @@ export const Input = styled.div`
 
     textarea{
         text-align: justify;
+        border: 1px solid black;
         border-radius: 10px;
         padding: 10px;
         outline: none;
         resize: none;
         font-family: Times New Roman;
+        transition: 0.2s;
         &:focus{
             border: 2px solid black;
         }

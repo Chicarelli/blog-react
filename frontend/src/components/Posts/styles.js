@@ -30,5 +30,7 @@ export const Container = styled.div`
     p{
         margin: 20px 70px;
         text-align: justify;
+        font-family: Arial;
+        line-height: 1.4rem;
     }
 `;
