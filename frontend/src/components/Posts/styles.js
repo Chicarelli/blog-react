@@ -33,4 +33,18 @@ export const Container = styled.div`
         font-family: Arial;
         line-height: 1.4rem;
     }
+    a{
+        text-decoration: none;
+        color: #321e4b;
+        font-size: 1.2rem;
+        font-weight: bold;
+        align-content: right;
+        align-self: flex-end;
+        margin-right: 70px;
+        transition: .2s;
+
+        &:hover{
+            opacity: .7;
+        }
+    }
 `;
