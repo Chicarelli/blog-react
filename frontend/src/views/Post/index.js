@@ -12,7 +12,7 @@ function Post(){
             <S.Container>
                 <h1>Titulo aqui</h1>
                 <h2>Subtitulo aqui</h2>
-                <p></p>
+                <p>Conteudo aqui</p>
             </S.Container>
             <Footer/>
         </>

@@ -21,7 +21,7 @@ export const Container = styled.div`
         margin-bottom: 20px;
         font-family: Verdana;
     }
-    textarea{
+    p{
         font-family: Verdana;
         background: #fff;
         resize: none;

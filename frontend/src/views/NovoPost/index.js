@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import tinymce, {Editor} from '@tinymce/tinymce-react';
+
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
@@ -24,7 +26,7 @@ function NovoPost(){
         <>
         <Header/>
         <S.Container>
-            <S.Form>
+            <S.Form >
                 <S.Input>
                     <label>TÍTULO</label>
                     <input type="text" id="inputTitulo" maxlength="95"placeholder="Nome"
@@ -39,10 +41,25 @@ function NovoPost(){
 
                 <S.Input>
                     <label id="label-textarea">POST</label>
-                    <textarea rows="17" id="inputConteudo" cols="5" placeholder="Content"
-                    onChange={e => setConteudo(e.target.value)}></textarea>
+                    <Editor 
+                        init={{
+                        height: 500,
+                        menubar: true,
+                        plugins: [
+                            'advlist autolink lists link image', 
+                            'charmap print preview anchor help',
+                            'searchreplace visualblocks code',
+                            'insertdatetime media table paste wordcount'
+                        ],
+                        toolbar:
+                            'undo redo | formatselect | bold italic | \
+                            alignleft aligncenter alignright | \
+                            bullist numlist outdent indent | help'
+                        }}
+                        onChange={ e => setConteudo(e.target.getContent())}
+                    />
                 </S.Input>
-                <S.Button onClick={verificarCampo}>
+                <S.Button type="submit" onClick={verificarCampo}>
                     Salvar
                 </S.Button>
             </S.Form>
@@ -51,6 +68,9 @@ function NovoPost(){
         </>
     );
 }
+
+
+
 
 
 export default NovoPost;

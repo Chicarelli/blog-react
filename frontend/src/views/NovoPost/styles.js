@@ -63,9 +63,7 @@ export const Input = styled.div`
         font-size: 1.09rem;
     }
 
-    #label-textarea{
-        top: 8px;
-    }
+   
 
 `;
 
