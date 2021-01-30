@@ -1,6 +1,6 @@
 import './App.css';
-import React, {useState} from 'react';
-
+import React, {useEffect, useState} from 'react';
+import api from '../../services/api';
 
 import Header from '../../components/Header';
 import Categories from '../../components/Categories';
@@ -10,6 +10,16 @@ import * as S from './styles';
 function Home() {
   const [filterActived, setFilterActived] = useState('Todos');
 
+  async function loadPost(){
+    await api.get('/post/all')
+    .then(response => {
+      console.log(response.data);
+    });
+  }
+
+  useEffect(() => {
+    loadPost();
+  }); 
 
   return (
     <>

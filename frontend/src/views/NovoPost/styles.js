@@ -15,6 +15,14 @@ export const Form = styled.form`
     display: flex;
     flex-direction: column;
     padding-top: 20px;
+
+    p{
+        color: red;
+        text-align: center;
+        font-weight: bold;
+        display: none;
+        transition: .2s;
+    }
 `;
 
 export const Input = styled.div`

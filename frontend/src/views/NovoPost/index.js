@@ -1,38 +1,54 @@
-import React, {useState} from 'react';
-import tinymce, {Editor} from '@tinymce/tinymce-react';
-
+import React, {useEffect, useState} from 'react';
+import {Editor} from '@tinymce/tinymce-react';
+import api from '../../services/api';
+import routes from '../../routes';
+import {Redirect} from 'react-router-dom';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
 import * as S from './styles';
 
 function NovoPost(){
+    const [redirect, setRedirect] = useState(false);
     const [titulo, setTitulo] = useState('');
     const [subtitulo, setSubtitulo] = useState('');
     const [conteudo, setConteudo] = useState('');
 
-    function verificarCampo(){
-        if(titulo == '')
-            return alert('Preencha um título');
-        if(conteudo == '')
-            return alert('Insira um texto');
-        save();
+    function verificarDados(){
+        if(titulo.replace(/\s/g, '') == ''){
+           alert("Digite um titulo");
+        } else 
+        if(conteudo.replace(/\s/, '') == ''){
+            alert("Digite um texto");
+        } else {
+            salvar();
+        }
     }
 
-    function save(){
-        alert("Salvo!");
-    }
+    async function salvar(){
+        await api.post('/post', {
+            "title": titulo, 
+            "subtitle": subtitulo, 
+            "content": conteudo
+        })
+        .then(() => 
+            setRedirect(true));
+    }   
+
+
+  
     return(
         <>
+         {redirect && <Redirect to="/" />}
         <Header/>
         <S.Container>
-            <S.Form >
+       
+            <S.Form onSubmit={e => verificarDados(e)}>
                 <S.Input>
                     <label>TÍTULO</label>
-                    <input type="text" id="inputTitulo" maxlength="95"placeholder="Nome"
+                    <input  id="inputTitulo" type="text" id="inputTitulo" maxlength="95"placeholder="Nome"
                     onChange={e => setTitulo(e.target.value) }></input>
                 </S.Input>
-
                 <S.Input>
                     <label>SUB-TITULO</label>
                     <input type="text" id="inputSubtitulo" placeholder="Sub-titulo"
@@ -41,7 +57,7 @@ function NovoPost(){
 
                 <S.Input>
                     <label id="label-textarea">POST</label>
-                    <Editor 
+                    <Editor id="inputTexto"
                         init={{
                         height: 500,
                         menubar: true,
@@ -59,7 +75,7 @@ function NovoPost(){
                         onChange={ e => setConteudo(e.target.getContent())}
                     />
                 </S.Input>
-                <S.Button type="submit" onClick={verificarCampo}>
+                <S.Button type="submit">
                     Salvar
                 </S.Button>
             </S.Form>
