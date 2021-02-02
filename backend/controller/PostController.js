@@ -18,7 +18,7 @@ class PostController{
 
     async all(req, res){
         await PostModel.find()
-        .sort('when')
+        .sort('-when')
         .then(response => {
             return res.status(200).json(response);
         }).catch(error => {
