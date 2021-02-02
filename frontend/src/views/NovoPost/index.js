@@ -1,18 +1,18 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {Editor} from '@tinymce/tinymce-react';
 import api from '../../services/api';
-import routes from '../../routes';
-import {Redirect} from 'react-router-dom';
+import {Redirect, useHistory} from 'react-router-dom';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
 import * as S from './styles';
 
 function NovoPost(){
-    const [redirect, setRedirect] = useState(false);
+
     const [titulo, setTitulo] = useState('');
     const [subtitulo, setSubtitulo] = useState('');
     const [conteudo, setConteudo] = useState('');
+    let history = useHistory();
 
     function verificarDados(){
         if(titulo.replace(/\s/g, '') == ''){
@@ -32,18 +32,16 @@ function NovoPost(){
             "content": conteudo
         })
         .then(() => 
-            setRedirect(true));
+        history.push('/'));
     }   
-
 
   
     return(
         <>
-         {redirect && <Redirect to="/" />}
         <Header/>
         <S.Container>
        
-            <S.Form onSubmit={e => verificarDados(e)}>
+            <S.Form  onSubmit={e => {e.preventDefault(); verificarDados(e)}}>
                 <S.Input>
                     <label>TÍTULO</label>
                     <input  id="inputTitulo" type="text" id="inputTitulo" maxlength="95"placeholder="Nome"
