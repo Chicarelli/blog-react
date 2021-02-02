@@ -1,6 +1,7 @@
 import './App.css';
 import React, {useEffect, useState} from 'react';
 import api from '../../services/api';
+import {Link} from 'react-router-dom';
 
 import Header from '../../components/Header';
 import Categories from '../../components/Categories';
@@ -9,11 +10,12 @@ import Posts from '../../components/Posts';
 import * as S from './styles';
 function Home() {
   const [filterActived, setFilterActived] = useState('Todos');
+  const [posts, setPosts] = useState([]);
 
   async function loadPost(){
     await api.get('/post/all')
     .then(response => {
-      console.log(response.data);
+      setPosts(response.data);
     });
   }
 
@@ -47,8 +49,14 @@ function Home() {
       </button>
       </S.FilterCategories>
       
-      <S.ContainerPostagem>
-        <Posts/>
+      <S.ContainerPostagem>]
+        {
+          posts.map(post => (
+            <Link to={`/post/${post._id}`}>
+              <Posts title={post.title} subtitle={post.subtitle} content={post.content}/>
+            </Link>
+          ))
+        }
       </S.ContainerPostagem>
       
       <Footer/>
