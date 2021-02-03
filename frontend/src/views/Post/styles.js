@@ -1,33 +1,42 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    width: 90%;
-    margin: auto;
-    height: calc(100vh - 80px); 
+    align-item: center;
     display: flex;
     flex-direction: column;
-    align-item: center;
+    min-height: calc(100vh - 80px); 
+    margin: auto;
+    width: 90%;
 
     h1{
         font-weight: bold;
         font-size: 3.5rem;
-        text-align: center;
         font-family: Verdana;
+        margin-top: 20px;
+        text-align: center;
     }
 
     h2{
+        font-family: Verdana;
         font-weight: 700;
-        text-align: center;
         margin-bottom: 20px;
-        font-family: Verdana;
+        margin-top: 15px;
+        text-align: center;
     }
+
+    section{
+        text-align: justify;
+    }
+
     p{
-        font-family: Verdana;
         background: #fff;
-        resize: none;
         border: none;
-        outline: none;
         color: black;
+        font-family: Verdana;
+        outline: none;
+        resize: none;
+        margin: 10px 0; 
     }
+    
 `;
 
