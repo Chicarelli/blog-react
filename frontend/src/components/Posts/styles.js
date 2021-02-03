@@ -35,6 +35,12 @@ export const Container = styled.div`
         font-family: Arial;
         line-height: 1.4rem;
     }
+
+    section{
+        max-height: 110px; 
+        overflow: hidden;
+    }
+
     a{
         text-decoration: none;
         color: #321e4b;
