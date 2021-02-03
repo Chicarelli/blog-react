@@ -49,12 +49,10 @@ function Home() {
       </button>
       </S.FilterCategories>
       
-      <S.ContainerPostagem>]
+      <S.ContainerPostagem>
         {
           posts.map(post => (
-            <Link to={`/post/${post._id}`}>
-              <Posts title={post.title} subtitle={post.subtitle} content={post.content}/>
-            </Link>
+              <Posts title={post.title} subtitle={post.subtitle} content={post.content} link={post._id}/>
           ))
         }
       </S.ContainerPostagem>

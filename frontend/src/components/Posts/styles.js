@@ -4,13 +4,15 @@ import styled from 'styled-components';
 export const Container = styled.div`
     margin: auto;
     border-radius: 10px;
-    margin-top: 30px;
-    margin-bottom: 10px;
     width: 80%;
     border: 1px solid black;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0px;
+    cursor: grab;
+    margin-top: 10px;
+    margin-bottom: 30px;
     
     h1{
         font-size: 3rem;

@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 
 
 
-function Posts({title, subtitle, content}){
+function Posts({title, subtitle, content, link}){
 
     useEffect(()=> {
         document.getElementsByTagName('section').innerHTML = content;
@@ -15,7 +15,7 @@ function Posts({title, subtitle, content}){
             <h1> {title} </h1>
             <h3>{subtitle}</h3>
             <section dangerouslySetInnerHTML={{ __html : content}}></section>
-            <Link to="/post">Ver mais</Link>
+            <Link to={`/post/${link}`}>Ver mais</Link>
         </S.Container>
     );
 
