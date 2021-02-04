@@ -1,24 +1,34 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Editor} from '@tinymce/tinymce-react';
 import api from '../../services/api';
-import {Redirect, useHistory} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import lixeira from './assets/trash.png'
 
 import * as S from './styles';
 
-function NovoPost(){
-
+function NovoPost({match}){
     const [titulo, setTitulo] = useState('');
     const [subtitulo, setSubtitulo] = useState('');
     const [conteudo, setConteudo] = useState('');
     let history = useHistory();
 
+    async function verificarPost(){
+        await api.get(`/post/${match.params.id}`)
+        .then(response => {
+            setTitulo(response.data.title);
+            setSubtitulo(response.data.subtitle);
+            setConteudo(response.data.content);
+        })
+        .catch(error => '');
+    }
+
     function verificarDados(){
-        if(titulo.replace(/\s/g, '') == ''){
+        if(titulo.replace(/\s/g, '') === ''){
            alert("Digite um titulo");
         } else 
-        if(conteudo.replace(/\s/, '') == ''){
+        if(conteudo.replace(/\s/, '') === ''){
             alert("Digite um texto");
         } else {
             salvar();
@@ -26,14 +36,31 @@ function NovoPost(){
     }
 
     async function salvar(){
-        await api.post('/post', {
-            "title": titulo, 
-            "subtitle": subtitulo, 
-            "content": conteudo
-        })
-        .then(() => 
-        history.push('/'));
+        if(match.params.id){
+            await api.put(`/post/update/${match.params.id}`, {
+                "title": titulo, 
+                "subtitle": subtitulo, 
+                "content": conteudo
+            })
+            .then(() => 
+            history.push('/'));
+        } else {
+            await api.post('/post', {
+                "title": titulo, 
+                "subtitle": subtitulo, 
+                "content": conteudo
+            })
+            .then(() => 
+            history.push('/'));
+        }
     }   
+
+    useEffect(()=> {
+        if(match.params.id){
+            verificarPost();
+        }
+    }, [])
+
 
   
     return(
@@ -44,18 +71,19 @@ function NovoPost(){
             <S.Form  onSubmit={e => {e.preventDefault(); verificarDados(e)}}>
                 <S.Input>
                     <label>TÍTULO</label>
-                    <input  id="inputTitulo" type="text" id="inputTitulo" maxlength="95"placeholder="Nome"
-                    onChange={e => setTitulo(e.target.value) }></input>
+                    <input value={titulo} id="inputTitulo" type="text" id="inputTitulo" maxlength="95"placeholder="Nome"
+                    onChange={e => setTitulo(e.target.value)}></input>
                 </S.Input>
                 <S.Input>
                     <label>SUB-TITULO</label>
-                    <input type="text" id="inputSubtitulo" placeholder="Sub-titulo"
+                    <input value={subtitulo} type="text" id="inputSubtitulo" placeholder="Sub-titulo"
                     onChange={e => setSubtitulo(e.target.value)}></input>
                 </S.Input>
 
                 <S.Input>
                     <label id="label-textarea">POST</label>
-                    <Editor id="inputTexto"
+                    <Editor  value={conteudo}
+                        id="inputTexto"
                         init={{
                         height: 500,
                         menubar: true,
@@ -73,9 +101,17 @@ function NovoPost(){
                         onChange={ e => setConteudo(e.target.getContent())}
                     />
                 </S.Input>
-                <S.Button type="submit">
-                    Salvar
-                </S.Button>
+                <S.Buttons>
+                    <S.Button type="submit">
+                        Salvar
+                    </S.Button>  
+
+                    {match.params.id && 
+                    <S.Excluir>
+                          <img src={lixeira}/>
+                    </S.Excluir>}
+                </S.Buttons>
+               
             </S.Form>
         </S.Container>
         <Footer/>

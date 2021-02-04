@@ -37,6 +37,28 @@ export const Container = styled.div`
         resize: none;
         margin: 10px 0; 
     }
+
+    a{
+        align-self: flex-end;
+        background: #321e4b;
+        border-radius: 5px;
+        color: #dfa837;
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        min-width: max-content;
+        outline: none;
+        padding: 10px;
+        transition: .2s;
+        text-decoration: none;
+        text-align: center;
+        width: 10%; 
+
+        &:hover{
+            opacity: .7;
+        }
+    }
     
 `;
 

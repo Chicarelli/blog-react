@@ -1,7 +1,6 @@
 import './App.css';
 import React, {useEffect, useState} from 'react';
 import api from '../../services/api';
-import {Link} from 'react-router-dom';
 
 import Header from '../../components/Header';
 import Categories from '../../components/Categories';
@@ -21,7 +20,7 @@ function Home() {
 
   useEffect(() => {
     loadPost();
-  }); 
+  }, []); 
 
   return (
     <>
@@ -52,7 +51,7 @@ function Home() {
       <S.ContainerPostagem>
         {
           posts.map(post => (
-              <Posts title={post.title} subtitle={post.subtitle} content={post.content} link={post._id}/>
+              <Posts key={post._id} title={post.title} subtitle={post.subtitle} content={post.content} link={post._id}/>
           ))
         }
       </S.ContainerPostagem>

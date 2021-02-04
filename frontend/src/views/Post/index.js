@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import * as S from './styles';
 import api from '../../services/api';
+import {Link} from 'react-router-dom';
 
 
 import Header from '../../components/Header';
@@ -17,7 +18,6 @@ function Post({match}){
             setTitle(response.data.title);
             setSubtitle(response.data.subtitle);
             setContent(response.data.content); 
-            console.log(response.data.title, response.data.subtitle, response.data.content);
         });
     }
 
@@ -31,6 +31,7 @@ function Post({match}){
                 <h1>{title}</h1>
                 <h2>{subtitle}</h2>
                 <section dangerouslySetInnerHTML={{__html : content}}></section>
+                <Link to={`/editPost/${match.params.id}`}>Editar</Link>
             </S.Container>
             <Footer/>
         </>

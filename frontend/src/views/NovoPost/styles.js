@@ -75,6 +75,12 @@ export const Input = styled.div`
 
 `;
 
+export const Buttons = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+`;
+
 export const Button = styled.button`
     width: 80%;
     margin: auto;
@@ -93,5 +99,22 @@ export const Button = styled.button`
 
     &:hover{
         opacity: .5;
+    }
+`;
+
+
+export const Excluir = styled.button`
+    width: 3.5%;
+    height: 47px;
+    margin-top: 5px;
+    margin-right: 5px;
+    min-width: 50px;
+    border-radius: 50px;
+    background: rgba(255, 0, 0, .8);
+    
+    padding: 6px;
+    img{
+        width: 90%;
+        background: 
     }
 `;

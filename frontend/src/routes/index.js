@@ -13,6 +13,7 @@ export default function Routes(){
                 <Route path="/" exact component={Home}/>
                 <Route path="/novopost" exact component={NovoPost}/>
                 <Route path="/post/:id" exact component={Post}/>
+                <Route path="/editPost/:id" exact component={NovoPost}/>
             </Switch>
         </BrowserRouter>
     );

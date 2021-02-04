@@ -19,6 +19,7 @@ export const Container = styled.div`
         font-weight: bold;
         padding: 15px;
         font-family: Lucida Console;
+        text-align: center;
     }
 
     h3{
@@ -54,5 +55,10 @@ export const Container = styled.div`
         &:hover{
             opacity: .7;
         }
+    }
+
+    img{
+        max-width: 100%;
+        border-radius: 4px;
     }
 `;
