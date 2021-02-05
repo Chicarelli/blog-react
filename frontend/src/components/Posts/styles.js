@@ -38,6 +38,7 @@ export const Container = styled.div`
 
     section{
         max-height: 110px; 
+        max-width: 100%;
         overflow: hidden;
         text-overflow: ellipsis;
     }

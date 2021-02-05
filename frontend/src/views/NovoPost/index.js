@@ -12,6 +12,7 @@ function NovoPost({match}){
     const [titulo, setTitulo] = useState('');
     const [subtitulo, setSubtitulo] = useState('');
     const [conteudo, setConteudo] = useState('');
+
     let history = useHistory();
 
     async function verificarPost(){
@@ -70,7 +71,7 @@ function NovoPost({match}){
         if(match.params.id){
             verificarPost();
         }
-    }, [verificarPost, match.params.id])
+    }, [])
 
 
   
