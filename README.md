@@ -4,7 +4,7 @@ A funcionalidade da aplicação consiste em três telas.
 
 1- Tela Inicial: 
 
-<img src="./pagina-inicial.PNG" alt="Pagina Inicial" width="400px"/>
+<img src="./pagina-inicial.PNG" alt="Pagina Inicial" width="800px"/>
 
 2- Tela do Post completo. 
 
