@@ -55,6 +55,17 @@ function NovoPost({match}){
         }
     }   
 
+    function confirmDelete(){
+        if(window.confirm("Deseja excluir este post?")) deleteTask();
+    }
+
+    async function deleteTask(){
+        await api.delete(`/post/delete/${match.params.id}`)
+        .then(response => {
+            history.push('/');
+        })
+    }
+
     useEffect(()=> {
         if(match.params.id){
             verificarPost();
@@ -108,7 +119,7 @@ function NovoPost({match}){
 
                     {match.params.id && 
                     <S.Excluir>
-                          <img src={lixeira}/>
+                          <img src={lixeira} onClick={confirmDelete}/>
                     </S.Excluir>}
                 </S.Buttons>
                
