@@ -9,22 +9,3 @@ export const ContainerPostagem = styled.div`
     margin-top: 50px;
     margin-bottom: 20px;
 `;
-
-
-export const FilterCategories = styled.div`
-    width: 80%;
-    margin: auto;
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-around;   
-
-    button{
-        border: 2px solid #2e1a47;
-        border-radius: 10px;
-        outline: none;
-
-    }
-    button:active{
-        border-radius: 10px;
-    }
-`;

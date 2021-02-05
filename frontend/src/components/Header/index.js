@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 function Header () {
     return(
         <S.Container>
-            <S.Logo>Blog do Rafael</S.Logo>
+            <S.Logo>Blog</S.Logo>
             <Link to="/">INÍCIO</Link>
             <a href="#">SOBRE NÓS</a>
             <a href="#">CONTATO</a>

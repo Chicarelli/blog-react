@@ -70,7 +70,7 @@ function NovoPost({match}){
         if(match.params.id){
             verificarPost();
         }
-    }, [])
+    }, [verificarPost, match.params.id])
 
 
   
@@ -82,7 +82,7 @@ function NovoPost({match}){
             <S.Form  onSubmit={e => {e.preventDefault(); verificarDados(e)}}>
                 <S.Input>
                     <label>TÍTULO</label>
-                    <input value={titulo} id="inputTitulo" type="text" id="inputTitulo" maxlength="95"placeholder="Nome"
+                    <input value={titulo} id="inputTitulo" type="text" maxLength="95"placeholder="Nome"
                     onChange={e => setTitulo(e.target.value)}></input>
                 </S.Input>
                 <S.Input>
@@ -97,7 +97,7 @@ function NovoPost({match}){
                         id="inputTexto"
                         init={{
                         height: 500,
-                        menubar: true,
+                        menubar: false,
                         plugins: [
                             'advlist autolink lists link image', 
                             'charmap print preview anchor help',
@@ -119,7 +119,7 @@ function NovoPost({match}){
 
                     {match.params.id && 
                     <S.Excluir>
-                          <img src={lixeira} onClick={confirmDelete}/>
+                          <img src={lixeira} alt="Delete post" onClick={confirmDelete}/>
                     </S.Excluir>}
                 </S.Buttons>
                
