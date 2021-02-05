@@ -14,4 +14,5 @@ A funcionalidade da aplicação consiste em três telas.
 
 <img src="pagina-criacao-de-post.PNG" alt ="Pagina de criação de post" width="800px"/>
 
+3.1 Tela de edição de post, preenche os campos da tela com os do post e por fim, acrescenta a opção de excluir o post específico. 
 <img src="edicao-de-post.PNG" alt="Pagina de edicação de post" width="800px"/>
