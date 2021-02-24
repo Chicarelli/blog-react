@@ -1,9 +1,19 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import * as S from './styles';
 import {Link} from 'react-router-dom';
 
 
 function Header () {
+    const [tema, setTema] = useState("Tema Escuro");
+
+
+    const changeTema = () => {
+        if(tema == "Tema Escuro"){
+            setTema("Tema Claro");
+        } else {
+            setTema("Tema Escuro");
+        }
+    }
 
     function showConfig(){
         
@@ -20,8 +30,7 @@ function Header () {
             <S.Config onclick={showConfig}>
                 <S.Dropdown>
                     <ul className="dropdown-content">
-                    <li>Tema Claro</li>
-                    <li>Tema Escuro</li> 
+                    <li onClick={changeTema}>{tema}</li>
                     </ul>
                 </S.Dropdown>
             </S.Config>

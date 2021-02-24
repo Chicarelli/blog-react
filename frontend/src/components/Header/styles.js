@@ -73,6 +73,7 @@ export const Dropdown = styled.div`
 
     li{
         line-height: 1.8rem;
+        transition: .3s;
 
         &:hover{
             opacity: .3;
