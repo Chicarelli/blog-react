@@ -1,82 +1,101 @@
-import styled from 'styled-components';
-import configImage from './assets/settings.svg';
+import styled from "styled-components";
 
 export const Container = styled.div`
-    display: flex;
-    width: 100%;
-    height: 50px;
-    background: #321e4b;
-    align-items: center;
+  display: flex;
+  width: 100%;
+  height: 50px;
+  background: #321e4b;
+  align-items: center;
 
-    a{
-        text-decoration: none;
-        color: #fff;
-        font-weight: bold;
-        margin: 0 40px;
-        transition: 0.2s;
-    }
+  a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    margin: 0 40px;
+    transition: 0.2s;
+  }
 
-    a:hover{
-        color: gray;
-    }
+  a:hover {
+    color: gray;
+  }
 `;
-
 
 export const Logo = styled.span`
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #dfa837;
-    margin-left: 20px;
-    margin-right: 40px;
-
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #dfa837;
+  margin-left: 20px;
+  margin-right: 40px;
 `;
-
 
 export const Config = styled.div`
-    background: url(${configImage}) no-repeat;
-    cursor: pointer;
-    filter: invert(1);
-    -webkit-filter: invert(1);
-    position: absolute; 
-    right: 60px;
-    top: 12px;
-    width: 20px;
-    weight: bold;
+  cursor: pointer;
+  position: absolute;
+  right: 60px;
+  top: 12px;
+  width: 20px;
+  weight: bold;
 
-    &:hover .dropdown-content{
-        display: block;
-    }
-`;
+  &:hover .dropdown-content {
+    display: block;
+  }
 
-export const Dropdown = styled.div`
+  label {
     position: relative;
-    top: 8px;
-    left: -50px;
-    width: 50px;
     display: inline-block;
-    fiter: invert(1);
-    -webkit-filter: invert(1);
-    opacity: .9;
+    width: 50px;
+    height: 25px;
+  }
 
-    ul{
-        background: #321e4b;
-        color: white;
-        display: none;
-        margin-top: 30px;
-        min-width: 98px;
-        box-shadow: 0px 8px 16px 0px rgba(255,255,255,0.2);
-        padding: 12px 16px;
-        z-index: 1;
-        list-style-type: none;
-        text-align: left: 
-    }
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
 
-    li{
-        line-height: 1.8rem;
-        transition: .3s;
+  span {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
 
-        &:hover{
-            opacity: .3;
-        }
-    }
+  span:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+
+  input:checked + span {
+    background-color: #2196f3;
+  }
+
+  input:focus + span {
+    box-shadow: 0 0 1px #2196f3;
+  }
+
+  input:checked + span:before {
+    -webkit-transform: translateX(24px);
+    -ms-transform: translateX(24px);
+    transform: translateX(24px);
+  }
+
+  span {
+    border-radius: 20px;
+  }
+
+  span:before {
+    border-radius: 50%;
+  }
 `;

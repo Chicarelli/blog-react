@@ -6,7 +6,8 @@ export const Container = styled.div`
     flex-direction: column;
     min-height: calc(100vh - 80px); 
     margin: auto;
-    width: 90%;
+    width: 100%;
+    background: ${props => props.theme.tema.background};
 
     h1{
         font-weight: bold;
@@ -14,6 +15,7 @@ export const Container = styled.div`
         font-family: Verdana;
         margin-top: 20px;
         text-align: center;
+        color: ${props => props.theme.tema.textcolor};
     }
 
     h2{
@@ -22,16 +24,19 @@ export const Container = styled.div`
         margin-bottom: 20px;
         margin-top: 15px;
         text-align: center;
+        color: ${props => props.theme.tema.textcolor};
     }
 
     section{
         text-align: justify;
+        margin-left: 40px;
+        margin-right: 40px;
+        background: ${props=> props.theme.tema.background};
+        color: ${props => props.theme.tema.textcolor};
     }
 
     p{
-        background: #fff;
         border: none;
-        color: black;
         font-family: Verdana;
         outline: none;
         resize: none;
@@ -41,6 +46,7 @@ export const Container = styled.div`
     a{
         align-self: flex-end;
         background: #321e4b;
+        border: 1px solid ${props => props.theme.tema.textcolor};
         border-radius: 5px;
         color: #dfa837;
         font-size: 1.2rem;
@@ -54,6 +60,7 @@ export const Container = styled.div`
         text-decoration: none;
         text-align: center;
         width: 10%; 
+        margin-right: 20px;
 
         &:hover{
             opacity: .7;

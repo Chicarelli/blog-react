@@ -6,6 +6,7 @@ export const ContainerPostagem = styled.div`
     display: flex;
     flex-direction: column;
     min-height: calc(100vh - 150px);
-    margin-top: 50px;
-    margin-bottom: 20px;
+    background: ${props => props.theme.tema.background};
+    padding-top: 50px;
+    padding-bottom: 20px;
 `;

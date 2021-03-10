@@ -9,6 +9,7 @@ export const Container = styled.div`
     flex-direction: column;
     margin: auto;
     margin-top: 10px;
+    background: ${props => props.theme.tema.background};
     margin-bottom: 30px;
     padding: 0px;
     width: 70%;
@@ -17,6 +18,7 @@ export const Container = styled.div`
         font-size: 3rem;
         font-weight: bold;
         font-family: Lucida Console;
+        color: ${props => props.theme.tema.textcolor};
         padding: 5px;
         text-align: center;
     }
@@ -25,6 +27,7 @@ export const Container = styled.div`
         color: #333;
         font-size: 1.2rem;
         font-family: Lucida Console;
+        color: ${props => props.theme.tema.textcolor};
         padding: 5px;
     }
 
@@ -33,6 +36,7 @@ export const Container = styled.div`
         margin: 20px 70px;
         text-align: justify;
         font-family: Arial;
+        color: ${props => props.theme.tema.textcolor};
         
     }
 
@@ -52,6 +56,7 @@ export const Container = styled.div`
         margin-right: 70px;
         text-decoration: none;
         transition: .2s;
+        color: ${props => props.theme.tema.textcolor};
 
         &:hover{
             opacity: .7;
@@ -68,5 +73,6 @@ export const Container = styled.div`
         width: 70%;
         opacity: .7;
         margin-bottom: 3px;
+        color: ${props => props.theme.tema.textcolor};
     }
 `;
