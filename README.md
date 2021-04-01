@@ -4,7 +4,7 @@ A funcionalidade da aplicação consiste em três telas.
 
 1- Tela Inicial: 
 
-<img src="./pagina-inicial.PNG" alt="Pagina Inicial" width="800px"/>
+<img src="https://github.com/Chicarelli/blog-react/blob/master/pagina-inicial.PNG" alt="Pagina Inicial" width="800px"/>
 
 2- Tela do Post completo. 
 
